@@ -29,9 +29,9 @@ export default class Main extends Component {
         return (
             <View>
                 <Text>Número de itens: {this.state.docs.length}</Text>
-                {this.state.docs.map(product => {
-                    return <Text>{product.title}</Text>
-                })}
+                {this.state.docs.map(product => (
+                    <Text>{product.title}</Text>
+                ))}
             </View>
         );
     }
