@@ -7,6 +7,10 @@ export default class Main extends Component {
         title: 'JShunt',
     };
 
+    state = {
+        docs: []
+    }
+
     componentDidMount() {
         this.loadProducts();
     }
@@ -15,12 +19,19 @@ export default class Main extends Component {
         const response = await api.get('/products');
         const { docs } = response.data;
         console.log(docs);
+        this.setState ({
+            docs
+        });
+        console.log(docs);
     };
 
     render() {
         return (
             <View>
-                <Text>Página Main</Text>
+                <Text>Número de itens: {this.state.docs.length}</Text>
+                {this.state.docs.map(product => {
+                    return <Text>{product.title}</Text>
+                })}
             </View>
         );
     }
